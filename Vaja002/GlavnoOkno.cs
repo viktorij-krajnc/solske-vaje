@@ -101,13 +101,31 @@ public class GlavnoOkno : Form
         TabIndex = 11
     };
 
+    private readonly Button btnPotrdi = new Button()
+    {
+        Name = "btnPotrdi",
+        Text = "Potrdi osnutek",
+        AutoSize = true,
+        Enabled = false,
+        TabIndex = 12
+    };
+
+    private readonly Label lblPotrditev = new Label()
+    {
+        Name = "lblPotrditev",
+        AutoSize = true,
+        Dock = DockStyle.Fill,
+        Visible = false,
+        TabIndex = 13
+    };
+
     private readonly Label lblStevec = new Label()
     {
         Name = "lblStevec",
         Text = "Število pripravljenih osnutkov: 0",
         AutoSize = true,
         Dock = DockStyle.Fill,
-        TabIndex = 12
+        TabIndex = 14
     };
 
     private readonly Label lblZadnjiOsnutek = new Label()
@@ -116,7 +134,7 @@ public class GlavnoOkno : Form
         AutoSize = true,
         Dock = DockStyle.Fill,
         Visible = false,
-        TabIndex = 13
+        TabIndex = 15
     };
 
     private readonly Button btnPocisti = new Button()
@@ -124,7 +142,7 @@ public class GlavnoOkno : Form
         Name = "btnPocisti",
         Text = "Počisti",
         AutoSize = true,
-        TabIndex = 14
+        TabIndex = 16
     };
     private int steviloOsnutkov = 0;
 
@@ -147,10 +165,10 @@ public class GlavnoOkno : Form
             AutoScroll = true,
             Padding = new Padding(16),
             ColumnCount = 1,
-            RowCount = 15
+            RowCount = 17
         };
         razpored.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
-        for (int vrstica = 0; vrstica < 15; vrstica++)
+        for (int vrstica = 0; vrstica < 17; vrstica++)
         {
             if (vrstica == 4)
             {
@@ -174,9 +192,11 @@ public class GlavnoOkno : Form
         razpored.Controls.Add(lblNapaka, 0, 9);
         razpored.Controls.Add(btnPripravi, 0, 10);
         razpored.Controls.Add(lblPovzetek, 0, 11);
-        razpored.Controls.Add(lblStevec, 0, 12);
-        razpored.Controls.Add(lblZadnjiOsnutek, 0, 13);
-        razpored.Controls.Add(btnPocisti, 0, 14);
+        razpored.Controls.Add(btnPotrdi, 0, 12);
+        razpored.Controls.Add(lblPotrditev, 0, 13);
+        razpored.Controls.Add(lblStevec, 0, 14);
+        razpored.Controls.Add(lblZadnjiOsnutek, 0, 15);
+        razpored.Controls.Add(btnPocisti, 0, 16);
         Controls.Add(razpored);
 
         // Povezava dogodka z metodo. Samo ime metode v C# ne vzpostavi povezave.
@@ -186,6 +206,7 @@ public class GlavnoOkno : Form
         txtIskanje.TextChanged += IskanjeSpremenjeno;
         txtNamen.TextChanged += NamenSpremenjen;
         btnPripravi.Click += PripraviKlik;
+        btnPotrdi.Click += PotrdiKlik;
         btnPocisti.Click += PocistiKlik;
         OsnutekPripravljen += ObOsnutkuPripravljen;
 
@@ -208,6 +229,9 @@ public class GlavnoOkno : Form
 
     private void SkrijPovzetek()
     {
+        btnPotrdi.Enabled = false;
+        lblPotrditev.Text = "";
+        lblPotrditev.Visible = false;
         lblPovzetek.Text = "";
         lblPovzetek.Visible = false;
         lblZadnjiOsnutek.Text = "";
@@ -260,7 +284,20 @@ public class GlavnoOkno : Form
         OsnutekEventArgs podatki = new OsnutekEventArgs(oprema, txtNamen.Text.Trim());
         lblPovzetek.Text = $"Osnutek izposoje: {podatki.Oprema}. Namen: {podatki.Namen}";
         lblPovzetek.Visible = true;
+        btnPotrdi.Enabled = true;
         OsnutekPripravljen?.Invoke(this, podatki);
+    }
+
+    private void PotrdiKlik(object? sender, EventArgs e)
+    {
+        if (!btnPotrdi.Enabled || !lblPovzetek.Visible)
+        {
+            return;
+        }
+
+        lblPotrditev.Text = "Osnutek je potrjen. To ni rezervacija in se ne shrani po zaprtju programa.";
+        lblPotrditev.Visible = true;
+        btnPotrdi.Enabled = false;
     }
 
     private void ObOsnutkuPripravljen(object? sender, OsnutekEventArgs e)
