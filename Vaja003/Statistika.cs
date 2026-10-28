@@ -6,9 +6,13 @@ namespace Vaja003
     {
         public static double Povprecje(double[] meritve)
         {
-            if (meritve == null || meritve.Length == 0)
+            if (meritve == null)
             {
-                return double.NaN;
+                throw new ArgumentNullException(nameof(meritve));
+            }
+            if (meritve.Length == 0)
+            {
+                throw new ArgumentException("Prazna tabela nima povprečja.", nameof(meritve));
             }
 
             double vsota = 0;
@@ -21,9 +25,13 @@ namespace Vaja003
 
         public static double Najvecja(double[] meritve)
         {
-            if (meritve == null || meritve.Length == 0)
+            if (meritve == null)
             {
-                return double.NaN;
+                throw new ArgumentNullException(nameof(meritve));
+            }
+            if (meritve.Length == 0)
+            {
+                throw new ArgumentException("Prazna tabela nima največje vrednosti.", nameof(meritve));
             }
 
             double najvecja = meritve[0];
@@ -41,7 +49,7 @@ namespace Vaja003
         {
             if (meritve == null)
             {
-                return 0;
+                throw new ArgumentNullException(nameof(meritve));
             }
 
             int stevilo = 0;

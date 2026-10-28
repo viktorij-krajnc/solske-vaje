@@ -1,6 +1,6 @@
-# Vaja003 — konzolne naloge
+# Vaja003 — pregledna različica z menijem
 
-**Ime in priimek:** Viktorij Krajnc
+**Ime in priimek:** Viktorij Krajnc  
 **Oddajna datoteka:** `Krajnc_Viktorij_Vaja003.zip`
 
 ## Zagon
@@ -24,7 +24,15 @@ Ob zagonu se prikaže meni. Vpiši številko naloge in pritisni Enter. Program i
 | 5 | Pri vsakem od štirih izsekov napovedati posledico, preveriti, razložiti vzrok in popraviti kodo. | Štiri ločeno označene popravke; izvorna koda in opažanja so tudi v `Napake.md`. |
 | 6 | Igra ugibanja naključnega števila 1–100, največ sedem veljavnih poskusov, pravilno preverjanje vnosov. | Samostojno igro z navodili in povratnimi informacijami. |
 
-Vseh šest nalog je v enem konzolnem projektu `Vaja003`, koda pa je razporejena po datotekah. Meni omogoča ločen prikaz posameznih nalog. Tretja in četrta izbira uporabljata iste metode: četrta naloga predstavlja ureditev kode v ponovno uporaben modul.
+**To niso šest ločenih projektov.** Vse ostane v enem konzolnem projektu `Vaja003`, koda pa je razporejena po datotekah. Meni je dodatek za preglednost, ne sprememba zahtev naloge. Tretja in četrta izbira uporabljata iste metode: četrta naloga je predvsem ureditev kode v ponovno uporaben modul.
+
+## Napoved izpisa pri 1. nalogi
+
+Izvorni izsek iz navodil izpiše po vrsti `10`, `3` in `3,5` (oziroma `3.5`, odvisno od nastavitev okolja). Spremenljivka `b` ohrani kopijo vrednosti 10, čeprav se `a` pozneje spremeni. Izraz `7 / 2` deli dve celi števili, zato je rezultat 3. Pri `7 / 2.0` je en operand tipa `double`, zato je rezultat 3,5.
+
+## Zakaj pri 6. nalogi zadošča sedem poskusov?
+
+Pri strategiji razpolavljanja vedno ugibamo sredino preostalega območja. Če je ugib premajhen, nadaljujemo z večjimi števili; če je prevelik, z manjšimi. Tako po vsakem napačnem ugibu izločimo približno polovico možnosti. Sedem poskusov zadošča za vsa števila od 1 do 100: `2^6 = 64 < 100`, `2^7 = 128 >= 100`. Na primer: če je iskano število 42, lahko ugibamo 50, 25, 37, 43, 40, 41 in 42.
 
 ## Razporeditev kode
 
@@ -41,21 +49,19 @@ Negativno trajanje sproži `ArgumentOutOfRangeException`. Masa mora biti večja 
 
 | Metoda | Vhod | Rezultat pri polju 18, 20, 19, 23, 20 | Prazno polje |
 | --- | --- | --- | --- |
-| `Povprecje` | `double[] meritve` | `double`: 20 | `double.NaN` – rezultat ni določen |
-| `Najvecja` | `double[] meritve` | `double`: 23 | `double.NaN` – rezultat ni določen |
+| `Povprecje` | `double[] meritve` | `double`: 20 | `ArgumentException` |
+| `Najvecja` | `double[] meritve` | `double`: 23 | `ArgumentException` |
 | `PrestejNad` | `double[] meritve`, `double meja` = 20 | `int`: 1 | 0 |
 
-Pri `null` je obnašanje enako kot pri praznem polju. `double.NaN` pomeni »Not a Number«: za prazno polje povprečje in največja vrednost nista določena. Ničla pri teh dveh metodah ni ustrezna oznaka manjkajočega rezultata, ker je tudi veljaven izračunan rezultat. Za preverjanje se uporablja `double.IsNaN(rezultat)`, ne primerjava `rezultat == double.NaN`. Prikaz s podanimi meritvami izpiše 20, 23 in 1.
-
-Metode obravnavajo običajna končna števila; vhodni `NaN` in neskončnosti niso posebej obravnavani. Metode za čas, dostavo in preverjanje testnega cilja igre uporabljajo izjeme za neveljavne argumente. `public` pomeni dostopnost drugi kodi; `static` omogoča klic prek imena razreda brez ustvarjanja objekta. Primer uporabe iz druge aplikacije, ki referencira ta projekt:
+Vse tri pri `null` sprožijo `ArgumentNullException`. Meritve naj bodo običajna končna števila; `NaN` in neskončnosti niso dodatno obravnavane. `public` pomeni dostopnost drugi kodi; `static` omogoča klic prek imena razreda brez ustvarjanja objekta. Primer uporabe iz druge aplikacije, ki referencira ta projekt:
 
 ```csharp
 double[] temperature = { -8, -3, -5 };
 double najvecja = Vaja003.Statistika.Najvecja(temperature);
 ```
 
-V igri neveljavni vnosi ne porabijo poskusa. Ob koncu vhoda (`null`) se konča celoten program brez dodatnega menija; po normalnem koncu igre sledi vrnitev v meni. Število je izbrano naključno z `new Random().Next(1, 101)`.
+V igri neveljavni vnosi ne porabijo poskusa. Ob koncu vhoda (`null`) se konča celoten program brez dodatnega menija; po normalnem koncu igre se lahko vrneš v meni. Za ponovljiv preizkus lahko začasno zamenjaš naključno izbrano število v `Ugibanje.Zazeni` z `42`; po testiranju vrni `new Random().Next(1, 101)`. Oddajna koda uporablja naključno izbiro.
 
-Izvorne napake in vzroki: `Napake.md`. Dejanska preverjanja in omejitve: `Preverjanje.md`. Dokumentacijski viri: `Viri.md`.
+Izvorne napake, vzroki in popravki so opisani v `Napake.md`.
 
-Decimalno ločilo pri izpisu je odvisno od nastavitev računalnika.
+Predavanje `003-predavanje.md` ni bilo priloženo. Decimalno ločilo pri izpisu je odvisno od nastavitev računalnika.

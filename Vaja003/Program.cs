@@ -53,7 +53,7 @@ namespace Vaja003
         public static void Naloga1()
         {
             Console.WriteLine("\n1. Spremenljivke in pretvorba časa");
-            Console.WriteLine("Zahteva: prikaz kopiranja vrednosti, celoštevilskega in realnega deljenja ter pretvorbe sekund.");
+            Console.WriteLine("Zahteva: prikaži kopiranje vrednosti, celoštevilsko in realno deljenje ter pretvorbo sekund.");
             Console.WriteLine("Vhod: a = 10, b = a, a = a + 5; 7 / 2; 7 / 2.0; 7322 sekund.");
             int a = 10;
             int b = a;
@@ -68,7 +68,7 @@ namespace Vaja003
         public static void Naloga2()
         {
             Console.WriteLine("\n2. Dostava");
-            Console.WriteLine("Zahteva: izračun cene dostave glede na maso in prednostno dostavo.");
+            Console.WriteLine("Zahteva: izračunaj ceno dostave glede na maso in prednostno dostavo.");
             Console.WriteLine("Vhod: masaKg = 2m, prednostno = true.");
             Console.WriteLine("Izhod: " + Dostava.CenaDostave(2m, true) + " EUR");
             Console.WriteLine("Razlog: (0, 1] kg: 3 EUR; (1, 5] kg: 5 EUR; (5, 20] kg: 9 EUR; prednostno +2 EUR, zato 5 + 2 = 7.");
@@ -77,7 +77,7 @@ namespace Vaja003
         public static void Naloga3()
         {
             Console.WriteLine("\n3. Statistika");
-            Console.WriteLine("Zahteva: izračun povprečja, največje vrednosti in števila meritev strogo nad mejo 20.");
+            Console.WriteLine("Zahteva: izračunaj povprečje, največjo vrednost in število meritev strogo nad mejo 20.");
             double[] meritve = { 18, 20, 19, 23, 20 };
             Console.WriteLine("Vhod: { 18, 20, 19, 23, 20 }, meja = 20.");
             Console.WriteLine("Izhod:");
@@ -90,32 +90,32 @@ namespace Vaja003
         public static void Naloga4()
         {
             Console.WriteLine("\n4. Modul Statistika");
-            Console.WriteLine("Zahteva: vhodni podatki in izpis so v Program.cs, izračuni pa v modulu Statistika.");
+            Console.WriteLine("Zahteva: podatke pripravi v Program.cs, pokliči metode modula Statistika in tukaj izpiši rezultate.");
             Console.WriteLine("public omogoča dostop iz Program; static omogoča klic brez ustvarjanja objekta.");
             Console.WriteLine("Modul samo računa in vrača vrednosti, zato ne uporablja Console.");
             double[] meritve = { 18, 20, 19, 23, 20 };
             double meja = 20;
             Console.WriteLine("Vhod: { 18, 20, 19, 23, 20 }, meja = 20.");
             Console.WriteLine("Izhod Povprecje: " + Statistika.Povprecje(meritve));
-            Console.WriteLine("Povprecje: vhod tabela; izhod povprečje (double); prazna tabela vrne NaN, ker rezultat ni določen.");
+            Console.WriteLine("Povprecje: vhod tabela; izhod povprečje (double); prazna tabela sproži ArgumentException.");
             Console.WriteLine("Izhod Najvecja: " + Statistika.Najvecja(meritve));
-            Console.WriteLine("Najvecja: vhod tabela; izhod največja vrednost (double); prazna tabela vrne NaN, ker rezultat ni določen.");
+            Console.WriteLine("Najvecja: vhod tabela; izhod največja vrednost (double); prazna tabela sproži ArgumentException.");
             Console.WriteLine("Izhod PrestejNad: " + Statistika.PrestejNad(meritve, meja));
             Console.WriteLine("PrestejNad: vhod tabela in meja; izhod število vrednosti > meja (int); prazna tabela vrne 0.");
-            Console.WriteLine("Razlog: iste metode ponovno uporabimo brez podvajanja izračunov. Pri null je obnašanje enako kot pri prazni tabeli.");
+            Console.WriteLine("Razlog: iste metode ponovno uporabimo brez podvajanja izračunov; vse tri zavrnejo null z ArgumentNullException.");
         }
 
         public static void Naloga5()
         {
             Console.WriteLine("\n5. Popravki");
-            Console.WriteLine("Zahteva: popravljeni oklepaj, deljenje, meja zanke in uporaba vrnjene vrednosti.");
+            Console.WriteLine("Zahteva: popravi oklepaj, deljenje, mejo zanke in uporabo vrnjene vrednosti.");
             Popravki.Prikazi();
         }
 
         public static bool Naloga6()
         {
             Console.WriteLine("\n6. Ugibanje");
-            Console.WriteLine("Zahteva: ugibanje naključnega celega števila od 1 do 100 v največ sedmih veljavnih poskusih.");
+            Console.WriteLine("Zahteva: ugani naključno celo število od 1 do 100 v največ sedmih veljavnih poskusih.");
             Console.WriteLine("Vhod: celo število od 1 do 100 v vsakem poskusu.");
             Console.WriteLine("Izhod: premajhno, preveliko, pravilno ali poraz z rešitvijo.");
             Console.WriteLine("Razlog: namig primerja ugib z rešitvijo; neveljaven vnos ne porabi poskusa.");
