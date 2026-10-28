@@ -1,0 +1,195 @@
+{
+  "at": "2026-10-28T15:08:09.6539229+00:00",
+  "runtime": "8.0.33",
+  "os": "Microsoft Windows NT 10.0.26100.0",
+  "checks": 31,
+  "failed": 0,
+  "results": [
+    {
+      "vhod": "Zagon",
+      "pricakovano": "4 kosi, števec 0, oba povzetka skrita.",
+      "dejansko": "4 kosi, števec 0, oba povzetka skrita.",
+      "uspesno": true
+    },
+    {
+      "vhod": "projektor + Poišči",
+      "pricakovano": "Dva projektorja.",
+      "dejansko": "Dva projektorja.",
+      "uspesno": true
+    },
+    {
+      "vhod": "  PROJEKTOR   + privzeto dejanje Enter",
+      "pricakovano": "Ista dva projektorja; AcceptButton je Poišči.",
+      "dejansko": "Ista dva projektorja; AcceptButton je Poišči.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Filter pri projektorjih",
+      "pricakovano": "Samo Projektor Epson.",
+      "dejansko": "Samo Projektor Epson.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Prazen pogoj + filter",
+      "pricakovano": "Epson in Rode.",
+      "dejansko": "Epson in Rode.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Odstranitev filtra",
+      "pricakovano": "Vsi 4 kosi.",
+      "dejansko": "Vsi 4 kosi.",
+      "uspesno": true
+    },
+    {
+      "vhod": "kamera",
+      "pricakovano": "Prazen seznam in Ni zadetkov.",
+      "dejansko": "Prazen seznam in Ni zadetkov.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Izbira vrstice",
+      "pricakovano": "Oznaka pokaže izbrani kos.",
+      "dejansko": "Oznaka pokaže izbrani kos.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Novo iskanje po izboru",
+      "pricakovano": "Izbor odstranjen, poziv k izboru.",
+      "dejansko": "Izbor odstranjen, poziv k izboru.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Trikrat isto iskanje",
+      "pricakovano": "Še vedno 4 kosi brez podvojitev.",
+      "dejansko": "Še vedno 4 kosi brez podvojitev.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Tipkanje v iskanje brez klika",
+      "pricakovano": "Seznam se še ne osveži.",
+      "dejansko": "Seznam se še ne osveži.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Brez izbrane opreme, veljaven namen",
+      "pricakovano": "Opozorilo; brez osnutka in dogodka, števec ostane 0.",
+      "dejansko": "Opozorilo; brez osnutka in dogodka, števec ostane 0.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Namen \"\"",
+      "pricakovano": "Napaka in brez uspešnega dogodka.",
+      "dejansko": "Napaka in brez uspešnega dogodka.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Namen \"   \"",
+      "pricakovano": "Napaka in brez uspešnega dogodka.",
+      "dejansko": "Napaka in brez uspešnega dogodka.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Namen \"abcd\"",
+      "pricakovano": "Napaka in brez uspešnega dogodka.",
+      "dejansko": "Napaka in brez uspešnega dogodka.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Namen \"  abcd  \"",
+      "pricakovano": "Napaka in brez uspešnega dogodka.",
+      "dejansko": "Napaka in brez uspešnega dogodka.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Namen abcde",
+      "pricakovano": "5 znakov sprejetih, natanko en dogodek in števec +1.",
+      "dejansko": "5 znakov sprejetih, natanko en dogodek in števec +1.",
+      "uspesno": true
+    },
+    {
+      "vhod": "  Predavanje  ",
+      "pricakovano": "Trim v povzetku in podatkih; sender je okno.",
+      "dejansko": "Trim v povzetku in podatkih; sender je okno.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Lepljenje abcd, nato Predavanje",
+      "pricakovano": "TextChanged pokaže napako in jo nato odstrani.",
+      "dejansko": "TextChanged pokaže napako in jo nato odstrani.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Počisti, dvakrat veljavno, nato napačno",
+      "pricakovano": "Števec 0 → 1 → 2 → 2, samo dva nova dogodka.",
+      "dejansko": "Števec 0 → 1 → 2 → 2, samo dva nova dogodka.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Sprememba namena po uspehu",
+      "pricakovano": "Skrije oba prikaza; števec enak.",
+      "dejansko": "Skrije oba prikaza; števec enak.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Sprememba izbora po uspehu",
+      "pricakovano": "Skrije oba prikaza; števec enak.",
+      "dejansko": "Skrije oba prikaza; števec enak.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Novo iskanje po uspehu",
+      "pricakovano": "Izbor odstranjen in prikaza skrita.",
+      "dejansko": "Izbor odstranjen in prikaza skrita.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Filter po uspehu",
+      "pricakovano": "Seznam osvežen, izbor odstranjen in prikaza skrita.",
+      "dejansko": "Seznam osvežen, izbor odstranjen in prikaza skrita.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Počisti po napaki",
+      "pricakovano": "Namen in izbor prazna, napaka prazna, povzetka skrita, števec0; brez dogodka.",
+      "dejansko": "Namen in izbor prazna, napaka prazna, povzetka skrita, števec0; brez dogodka.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Veljavno po čiščenju",
+      "pricakovano": "Števec1 in en dogodek.",
+      "dejansko": "Števec1 in en dogodek.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Tudi kos, ki ni na voljo",
+      "pricakovano": "Dovoljen osnutek, ne rezervacija.",
+      "dejansko": "Dovoljen osnutek, ne rezervacija.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Programski prehod Tab",
+      "pricakovano": "Doseže iskanje, filter, Poišči, seznam, namen, Pripravi in Počisti.",
+      "dejansko": "Doseže iskanje, filter, Poišči, seznam, namen, Pripravi in Počisti.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Najmanjše in običajno okno",
+      "pricakovano": "Gradniki so znotraj odjemalskega območja brez prekrivanja.",
+      "dejansko": "Gradniki so znotraj odjemalskega območja brez prekrivanja.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Zelo dolg namen",
+      "pricakovano": "Veljaven namen ostane berljiv; brez prekrivanja vrstic.",
+      "dejansko": "Veljaven namen ostane berljiv; brez prekrivanja vrstic.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Novo okno po zaprtju",
+      "pricakovano": "Števec0, namen prazen in povzetek skrit.",
+      "dejansko": "Števec0, namen prazen in povzetek skrit.",
+      "uspesno": true
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "checks": 10,
+  "failed": 0,
+  "results": [
+    {
+      "vhod": "Zagon",
+      "pricakovano": "4 kosi in poziv za izbor.",
+      "dejansko": "4 kosi in poziv za izbor.",
+      "uspesno": true
+    },
+    {
+      "vhod": "projektor + Poišči",
+      "pricakovano": "Dva projektorja.",
+      "dejansko": "Dva projektorja.",
+      "uspesno": true
+    },
+    {
+      "vhod": "  PROJEKTOR   + Enter",
+      "pricakovano": "Ista dva projektorja.",
+      "dejansko": "Ista dva projektorja.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Filter projektorjev",
+      "pricakovano": "Projektor Epson.",
+      "dejansko": "Projektor Epson.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Prazen pogoj in filter",
+      "pricakovano": "Epson in Rode.",
+      "dejansko": "Epson in Rode.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Brez filtra",
+      "pricakovano": "4 kosi.",
+      "dejansko": "4 kosi.",
+      "uspesno": true
+    },
+    {
+      "vhod": "kamera",
+      "pricakovano": "Prazen seznam, Ni zadetkov.",
+      "dejansko": "Prazen seznam, Ni zadetkov.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Izbor vrstice",
+      "pricakovano": "Oznaka izbrane opreme.",
+      "dejansko": "Oznaka izbrane opreme.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Iskanje po izboru",
+      "pricakovano": "Izbor odstranjen.",
+      "dejansko": "Izbor odstranjen.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Večkrat Poišči",
+      "pricakovano": "Ni podvojitev, 4 kosi.",
+      "dejansko": "Ni podvojitev, 4 kosi.",
+      "uspesno": true
+    }
+  ]
+}

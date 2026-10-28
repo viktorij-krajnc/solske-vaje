@@ -1,0 +1,85 @@
+{
+  "validacija4": {
+    "namen": "\"abcd\"",
+    "ociscenNamen": "\"abcd\"",
+    "dolzina": "4"
+  },
+  "validacija5": {
+    "namen": "\"abcde\"",
+    "dolzina": "5"
+  },
+  "poKorakuNapakaVrstica": 202,
+  "dogodekPred": {
+    "e.Oprema": "\"Projektor Epson – na voljo\"",
+    "e.Namen": "\"Predavanje\"",
+    "sender": "{DogodkiOprema.GlavnoOkno}",
+    "steviloOsnutkov": "0"
+  },
+  "dogodekPo": {
+    "steviloOsnutkov": "1",
+    "e.Namen": "\"Predavanje\""
+  },
+  "callStackValidacija": [
+    {
+      "name": "DogodkiOprema.GlavnoOkno.PreveriNamen()",
+      "line": 201
+    },
+    {
+      "name": "DogodkiOprema.GlavnoOkno.NamenSpremenjen()",
+      "line": 225
+    },
+    {
+      "name": "System.Windows.Forms.TextBoxBase.OnTextChanged()",
+      "line": 0
+    },
+    {
+      "name": "System.Windows.Forms.Control.set_Text()",
+      "line": 0
+    },
+    {
+      "name": "System.Windows.Forms.TextBoxBase.set_Text()",
+      "line": 0
+    },
+    {
+      "name": "System.Windows.Forms.TextBox.set_Text()",
+      "line": 0
+    },
+    {
+      "name": "Preverjanje.DebugPot()",
+      "line": 104
+    },
+    {
+      "name": "Preverjanje.Main()",
+      "line": 22
+    }
+  ],
+  "callStack": [
+    {
+      "name": "DogodkiOprema.GlavnoOkno.ObOsnutkuPripravljen()",
+      "line": 269
+    },
+    {
+      "name": "DogodkiOprema.GlavnoOkno.PripraviKlik()",
+      "line": 263
+    },
+    {
+      "name": "System.Windows.Forms.Button.OnClick()",
+      "line": 0
+    },
+    {
+      "name": "System.Windows.Forms.Button.PerformClick()",
+      "line": 0
+    },
+    {
+      "name": "Preverjanje.DebugPot()",
+      "line": 107
+    },
+    {
+      "name": "Preverjanje.Main()",
+      "line": 22
+    }
+  ],
+  "adapter": "Samsung NetCoreDbg 3.2.0-1092 DAP",
+  "screenshot": "Actual live xterm DAP client, Windows PC process stopped during captures; not Visual Studio",
+  "runtime": "Windows .NET 8.0.33 x64, portable isolated runtime"
+}
