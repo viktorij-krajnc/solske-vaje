@@ -8,7 +8,7 @@
     "namen": "\"abcde\"",
     "dolzina": "5"
   },
-  "poKorakuNapakaVrstica": 202,
+  "poKorakuNapakaVrstica": 223,
   "dogodekPred": {
     "e.Oprema": "\"Projektor Epson – na voljo\"",
     "e.Namen": "\"Predavanje\"",
@@ -22,11 +22,11 @@
   "callStackValidacija": [
     {
       "name": "DogodkiOprema.GlavnoOkno.PreveriNamen()",
-      "line": 201
+      "line": 222
     },
     {
       "name": "DogodkiOprema.GlavnoOkno.NamenSpremenjen()",
-      "line": 225
+      "line": 249
     },
     {
       "name": "System.Windows.Forms.TextBoxBase.OnTextChanged()",
@@ -46,7 +46,7 @@
     },
     {
       "name": "Preverjanje.DebugPot()",
-      "line": 104
+      "line": 124
     },
     {
       "name": "Preverjanje.Main()",
@@ -56,11 +56,11 @@
   "callStack": [
     {
       "name": "DogodkiOprema.GlavnoOkno.ObOsnutkuPripravljen()",
-      "line": 269
+      "line": 306
     },
     {
       "name": "DogodkiOprema.GlavnoOkno.PripraviKlik()",
-      "line": 263
+      "line": 288
     },
     {
       "name": "System.Windows.Forms.Button.OnClick()",
@@ -72,7 +72,7 @@
     },
     {
       "name": "Preverjanje.DebugPot()",
-      "line": 107
+      "line": 127
     },
     {
       "name": "Preverjanje.Main()",
@@ -80,6 +80,6 @@
     }
   ],
   "adapter": "Samsung NetCoreDbg 3.2.0-1092 DAP",
-  "screenshot": "Actual live xterm DAP client, Windows PC process stopped during captures; not Visual Studio",
+  "screenshot": "Actual live xterm DAP client, Windows VIKIPC process stopped during captures; not Visual Studio",
   "runtime": "Windows .NET 8.0.33 x64, portable isolated runtime"
 }

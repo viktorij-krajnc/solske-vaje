@@ -1,8 +1,8 @@
 {
-  "at": "2026-10-28T15:08:09.6539229+00:00",
-  "runtime": "8.0.33",
+  "at": "2026-10-28T16:15:34.0014581+00:00",
+  "runtime": "8.0.22",
   "os": "Microsoft Windows NT 10.0.26100.0",
-  "checks": 31,
+  "checks": 45,
   "failed": 0,
   "results": [
     {
@@ -189,6 +189,90 @@
       "vhod": "Novo okno po zaprtju",
       "pricakovano": "Števec0, namen prazen in povzetek skrit.",
       "dejansko": "Števec0, namen prazen in povzetek skrit.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Počisti pred potrditvijo",
+      "pricakovano": "Gumb onemogočen in status prazen.",
+      "dejansko": "Gumb onemogočen in status prazen.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Potrditev brez osnutka",
+      "pricakovano": "Ni potrditve in ni dogodka.",
+      "dejansko": "Ni potrditve in ni dogodka.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Neveljaven namen pred potrditvijo",
+      "pricakovano": "Gumb onemogočen.",
+      "dejansko": "Gumb onemogočen.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Pripravi in potrdi",
+      "pricakovano": "Vidna potrditev; gumb onemogočen, števec in dogodek nespremenjena.",
+      "dejansko": "Vidna potrditev; gumb onemogočen, števec in dogodek nespremenjena.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Ponovni klik potrditve",
+      "pricakovano": "Brez dodatnega dogodka ali spremembe števca.",
+      "dejansko": "Brez dodatnega dogodka ali spremembe števca.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Sprememba namena po potrditvi",
+      "pricakovano": "Potrditev in osnutek odstranjena.",
+      "dejansko": "Potrditev in osnutek odstranjena.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Sprememba izbora po potrditvi",
+      "pricakovano": "Potrditev odstranjena.",
+      "dejansko": "Potrditev odstranjena.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Tipkanje iskanja po potrditvi",
+      "pricakovano": "Potrditev odstranjena.",
+      "dejansko": "Potrditev odstranjena.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Poišči po potrditvi",
+      "pricakovano": "Potrditev odstranjena.",
+      "dejansko": "Potrditev odstranjena.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Filter po potrditvi",
+      "pricakovano": "Potrditev odstranjena.",
+      "dejansko": "Potrditev odstranjena.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Počisti po potrditvi",
+      "pricakovano": "Potrditev odstranjena in števec0.",
+      "dejansko": "Potrditev odstranjena in števec0.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Nova priprava po potrditvi",
+      "pricakovano": "Potrditev odstranjena; nov osnutek je mogoče potrditi.",
+      "dejansko": "Potrditev odstranjena; nov osnutek je mogoče potrditi.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Tab doseže Potrdi osnutek",
+      "pricakovano": "Omogočeni gumb je dosegljiv s tabulatorjem.",
+      "dejansko": "Omogočeni gumb je dosegljiv s tabulatorjem.",
+      "uspesno": true
+    },
+    {
+      "vhod": "Potrjeno najmanjše okno",
+      "pricakovano": "Vse vidne vrstice brez prekrivanja ali odrezanih kontrol.",
+      "dejansko": "Vse vidne vrstice brez prekrivanja ali odrezanih kontrol.",
       "uspesno": true
     }
   ]

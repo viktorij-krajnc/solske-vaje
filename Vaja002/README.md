@@ -1,6 +1,6 @@
 # Vaja002 – izposoja opreme
 
-Windows Forms aplikacija v C# za iskanje opreme in pripravo osnutka izposoje. Temelji na šolskem začetnem primeru.
+Windows Forms aplikacija v C# za iskanje opreme, pripravo in potrditev osnutka izposoje. Temelji na šolskem začetnem primeru.
 
 ## Zagon
 
@@ -16,8 +16,13 @@ Pogoji so zapisani z `if/else`, tipi z `new TextBox()` oziroma ustreznim tipom, 
 - Preverjanje med urejanjem in ob pripravi osnutka.
 - Lasten dogodek `OsnutekPripravljen` s podatki opreme in namena.
 - Števec uspešnih priprav, povzetek in gumb Počisti.
+- Gumb Potrdi osnutek, ki je omogočen šele po uspešni pripravi. Potrditev ne poveča števca pripravljenih osnutkov.
 
-Osnutek ni prava rezervacija in se ne shrani po zaprtju aplikacije.
+## Uporaba
+
+Izberite opremo, vnesite namen in kliknite Pripravi osnutek. Preberite povzetek ter kliknite Potrdi osnutek. Pojavi se potrditev, gumb pa se onemogoči. Sprememba namena, izbora, iskanja ali filtra odstrani stari osnutek in potrditev. Za nov postopek uporabite Počisti.
+
+Tudi potrjeni osnutek ni prava rezervacija in se ne shrani po zaprtju aplikacije. Razpoložljivost opreme ostane nespremenjena.
 
 [Dokumentacija, preizkusi in razhroščevanje](dokumentacija.md).
 

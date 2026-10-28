@@ -12,7 +12,7 @@ dotnet build .\Vaja002\DogodkiOprema.csproj
 dotnet run --project .\Vaja002\DogodkiOprema.csproj
 ```
 
-Program ničesar ne shranjuje. Osnutek ne rezervira opreme in ne spreminja njene razpoložljivosti.
+Program ničesar ne shranjuje. Tudi potrjeni osnutek ne rezervira opreme in ne spreminja njene razpoložljivosti.
 
 ## 2. Začetni primer
 
@@ -34,7 +34,7 @@ Pot iskanja: Poišči → Click → PoisciKlik → OsveziSeznam → Katalog.Pois
 
 ## 3. Dopolnitev
 
-Prevzeti so Program, podatki in iskalna logika Kataloga ter nastavitve projekta. V Katalogu so zdaj tipi zapisani izrecno, logika pa je enaka. V oknu so dodani namen, napaka, gumb Pripravi osnutek, povzetek, števec, zadnji osnutek in Počisti. Postavitev uporablja 15 vrstic TableLayoutPanel, seznam pa porabi preostali prostor. Gradniki imajo določene TabIndex in Name. Nov je `OsnutekEventArgs.cs`.
+Prevzeti so Program, podatki in iskalna logika Kataloga ter nastavitve projekta. V Katalogu so zdaj tipi zapisani izrecno, logika pa je enaka. V oknu so dodani namen, napaka, gumb Pripravi osnutek, povzetek, Potrdi osnutek, oznaka potrditve, števec, zadnji osnutek in Počisti. Postavitev uporablja 17 vrstic TableLayoutPanel, seznam pa porabi preostali prostor. Gradniki imajo določene TabIndex in Name. Nov je `OsnutekEventArgs.cs`.
 
 ### Bolj običajen zapis C#
 
@@ -55,9 +55,15 @@ Registracija, sprožitev in izvedba obdelovalnika so ločeni koraki. Neposreden 
 
 Počisti izprazni namen, odstrani izbor, napake in prikaza ter ponastavi števec na 0. Iskalnega pogoja in filtra ne spreminja. Uspešnega dogodka ne sproži.
 
+### Potrditev osnutka
+
+Gumb `btnPotrdi` je sprva onemogočen. Uspešna priprava ga omogoči. Klik sproži `PotrdiKlik`, ki pokaže »Osnutek je potrjen.« in opozorilo, da to ni rezervacija ali trajno shranjevanje, nato gumb onemogoči. Isti osnutek zato ni mogoče potrditi dvakrat. Potrditev ne sproži dogodka `OsnutekPripravljen` in ne poveča števca priprav.
+
+Metoda `SkrijPovzetek` odstrani tudi oznako potrditve in onemogoči gumb. Uporablja se pri spremembi namena, izbora ali iskanja, osvežitvi seznama, filtru, novi pripravi in čiščenju. Nova veljavna priprava omogoči novo potrditev. Gre za dodaten prikaz zaključka postopka, ne za shranjevanje dejanske izposoje.
+
 ## 4. Preizkusi
 
-Program je preverjen v pravem WinForms oknu na Windows z .NET 8.0.33 x64; gradnja za net8.0-windows je uspela brez napak in opozoril. Dopolnitev je prestala 31 preverjanj. Rezultati so v `rezultati-preizkusov.json`; začetni preizkusi izhodišča so v `zacetni-preizkusi.json`. Preverjanja so avtomatizirana: preverjevalnik je uporabil prave gradnike, PerformClick, spremembe besedila, izbora in Paste.
+Končna dopolnitev s potrditvijo je preverjena v pravem WinForms oknu na Windows z .NET 8.0.22 x64; gradnja za net8.0-windows je uspela. Dopolnitev je prestala 45 preverjanj: vseh 31 obstoječih in 14 novih. Rezultati so v `rezultati-preizkusov.json`; začetni preizkusi izhodišča so v `zacetni-preizkusi.json`. Preverjanja so avtomatizirana: preverjevalnik je uporabil prave gradnike, PerformClick, spremembe besedila, izbora in Paste.
 
 ### Začetni primer – 10 uspešnih / 0 neuspešnih
 
@@ -110,13 +116,19 @@ Program je preverjen v pravem WinForms oknu na Windows z .NET 8.0.33 x64; gradnj
 | Zelo dolg namen | Veljaven namen ostane berljiv; brez prekrivanja vrstic. | Veljaven namen ostane berljiv; brez prekrivanja vrstic. | Uspešno |
 | Novo okno po zaprtju | Števec0, namen prazen in povzetek skrit. | Števec0, namen prazen in povzetek skrit. | Uspešno |
 
-### Dejanska izrisa na Windows
+### Dodatnih 14 preverjanj potrditve
+
+Uspešno so bili preverjeni: začetna onemogočena potrditev po čiščenju, klik brez osnutka, neveljaven namen, veljavna priprava in potrditev brez spremembe števca ali dogodka, ponovni klik, razveljavitev po spremembi namena, izbora, tipkanju iskanja, kliku Poišči in spremembi filtra, čiščenje po potrditvi, nova priprava po potrditvi, dostop do gumba s Tab ter postavitev potrjenega osnutka v najmanjšem in večjem oknu. Pri vseh primerih sta pričakovano in dejansko stanje skladna; podrobni vhodi in rezultati so v JSON-u.
+
+### Dejanski izrisi na Windows
+
+![Potrjen osnutek v pravem WinForms oknu](slike/okno-potrjeno.png)
 
 ![Uspešna priprava v pravem WinForms oknu](slike/okno-uspeh.png)
 
 ![Napaka pri namenu abcd](slike/okno-napaka.png)
 
-To sta izrisa gradnikov z `DrawToBitmap`, ne fotografiji aktivnega uporabniškega namizja in ne dokaz ustavljenega izvajanja.
+To so izrisi gradnikov z `DrawToBitmap`, ne fotografije aktivnega uporabniškega namizja in ne dokaz ustavljenega izvajanja.
 
 ## 5. Razhroščevanje – dejanske ustavitve in slike
 
@@ -129,7 +141,7 @@ Dokazi so zajeti nad pravim Windows procesom. Slike in številke vrstic veljajo 
 ![Dejanska ustavitev pri preverjanju namena](slike/01-validacija.png)
 
 - Vhod: preverjevalnik v pravo polje `txtNamen` nastavi `abcd`; sproži se `TextChanged`, nato `NamenSpremenjen` in `PreveriNamen`.
-- Ustavitev: `GlavnoOkno.cs:201`, tik pred preverjanjem `if (dolzina < 5)`.
+- Ustavitev: `GlavnoOkno.cs:222`, tik pred preverjanjem `if (dolzina < 5)`.
 - Opazovane vrednosti: `namen = "abcd"`, `ociscenNamen = "abcd"`, `dolzina = 4`. V skladu klicev je viden `NamenSpremenjen`.
 - Naslednji korak preide v vejo napake; metoda vrne opozorilo in obdelovalnik ga prikaže. Tak vnos ne omogoča uspešne priprave osnutka.
 - Ponovljen robni preizkus z `abcde` je v razhroščevalniku pokazal dolžino 5; ta vnos je veljaven. Zunanje presledke odstrani `Trim()`, notranji presledki pa ostanejo del besedila.
@@ -139,16 +151,16 @@ Dokazi so zajeti nad pravim Windows procesom. Slike in številke vrstic veljajo 
 ![Dejanska ustavitev v obdelovalniku lastnega dogodka](slike/02-lastni-dogodek.png)
 
 - Vhod: izbran Projektor Epson in namen `  Predavanje  `; preverjevalnik sproži pravi gumb z `PerformClick()`.
-- Ustavitev: `GlavnoOkno.cs:269`, pred `steviloOsnutkov++` v `ObOsnutkuPripravljen`.
+- Ustavitev: `GlavnoOkno.cs:306`, pred `steviloOsnutkov++` v `ObOsnutkuPripravljen`.
 - Podatki: `sender` je `GlavnoOkno`, `e.Oprema = "Projektor Epson – na voljo"`, `e.Namen = "Predavanje"`, `steviloOsnutkov = 0`.
-- Sklad klicev vsebuje `ObOsnutkuPripravljen → PripraviKlik → Button.OnClick → Button.PerformClick → Preverjanje.DebugPot`. Registracija obdelovalnika je v konstruktorju na vrstici 190, sprožitev dogodka pa na vrstici 263.
+- Sklad klicev vsebuje `ObOsnutkuPripravljen → PripraviKlik → Button.OnClick → Button.PerformClick → Preverjanje.DebugPot`. Registracija obdelovalnika je v konstruktorju na vrstici 211, sprožitev dogodka pa na vrstici 288.
 - Naslednji korak izvede povečanje števca. Posodobitev napisa je šele naslednja vrstica, zato številska spremenljivka in napis med korakanjem nista nujno že usklajena.
 
 ### Dodatna slika: po koraku je števec 1
 
 ![Dejanska ustavitev po povečanju števca](slike/03-po-koraku.png)
 
-Po ukazu `next` (enakovredno koraku čez vrstico oziroma F10) je izvajanje ustavljeno na vrstici 270 in `steviloOsnutkov = 1`. To potrdi spremembo 0 → 1. Naslednji korak posodobi besedilo `lblStevec`. Podatki so tudi v `razhroscevanje.json`.
+Po ukazu `next` (enakovredno koraku čez vrstico oziroma F10) je izvajanje ustavljeno na vrstici 307 in `steviloOsnutkov = 1`. To potrdi spremembo 0 → 1. Naslednji korak posodobi besedilo `lblStevec`. Podatki so tudi v `razhroscevanje.json`.
 
 ### Postopek razhroščevanja v Visual Studiu
 
